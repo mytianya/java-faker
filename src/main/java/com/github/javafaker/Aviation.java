@@ -33,4 +33,14 @@ public class Aviation {
     public String METAR() {
         return faker.fakeValuesService().fetchString("aviation.metar");
     }
+
+    /**
+     * http://airport.anseo.cn/c-china__page-2
+     * @return
+     */
+    public String aiportIATA(){
+        return faker.fakeValuesService().fetchString("aviation.airportiata");
+    }
+
+
 }

@@ -6,7 +6,10 @@ import static com.github.javafaker.matchers.MatchesRegularExpression.matchesRegu
 import static org.junit.Assert.assertThat;
 
 public class AppTest extends AbstractFakerTest {
-
+    @Test
+    public void testName1(){
+        System.out.println(faker.app().name());
+    }
     @Test
     public void testName() {
         assertThat(faker.app().name(), matchesRegularExpression("([\\w-]+ ?)+"));
