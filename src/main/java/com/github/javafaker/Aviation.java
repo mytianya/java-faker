@@ -6,7 +6,7 @@ package com.github.javafaker;
 public class Aviation {
 
     private final Faker faker;
-
+    private static short[] area={1,2,3,4,5,6,8,9};
     protected Aviation(Faker faker) {
         this.faker = faker;
     }
@@ -38,9 +38,19 @@ public class Aviation {
      * http://airport.anseo.cn/c-china__page-2
      * @return
      */
-    public String aiportIATA(){
-        return faker.fakeValuesService().fetchString("aviation.airportiata");
+    public String airportIATA(){
+        return faker.fakeValuesService().fetchString("aviation.airportIata");
     }
-
+    public String planeIcao(){return faker.fakeValuesService().fetchString("aviation.planeIcao");}
+    public String planeNumber(){
+        StringBuffer sb=new StringBuffer();
+        sb.append(area[faker.random().nextInt(area.length)]);
+        sb.append(area[faker.random().nextInt(area.length)]);
+        sb.append(faker.random().nextInt(10,99));
+        return faker.fakeValuesService().fetchString("aviation.flightCompanyIcao")+sb.toString();
+    }
+    public String missionType(){
+        return faker.fakeValuesService().fetchString("aviation.missionType");
+    }
 
 }
